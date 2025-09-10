@@ -115,29 +115,29 @@ CREATE TABLE retail_sales
 ```
 ## Data Exploration 
 
-## How many sales we have?
+#### How many sales we have?
 ```sql
 Select count(*) as total_sales from retail_sales
 ```
-## How many customers customers we have?
+#### How many customers customers we have?
 ```sql
 Select count(DISTINCT(customer_id)) as total_customers from retail_sales
 ```
-## How many category we have?
+#### How many category we have?
 ```sql
 Select count(DISTINCT(category)) as total_category from retail_sales;
 ```
 
 ## Data Analysis & Business key problems & Answers
 
-## My Analysis & findings
+### My Analysis & findings
 
-## Q1. Write a SQL query to retrive all columns for sales made on '2022-11-05'
+#### Q1. Write a SQL query to retrive all columns for sales made on '2022-11-05'
 ```sql
 	SELECT * from retail_sales where sale_date = '2022-11-05'
 ```
 
-## Q2. Write a SQL query to retrive all transactions where the category is 'Clothing' and the quantity sold is more than it 4 in the month of Nov-2022
+#### Q2. Write a SQL query to retrive all transactions where the category is 'Clothing' and the quantity sold is more than it 4 in the month of Nov-2022
 ```sql
 	SELECT 
 		*
@@ -149,7 +149,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 		quantiy >= 4
 ```
 
-## Q3. Write a SQL query to calculate the total sales (total_sale) for each category
+#### Q3. Write a SQL query to calculate the total sales (total_sale) for each category
 ```sql
   SELECT
 		category,
@@ -159,7 +159,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	GROUP BY 1
 ```
 
-## Q4. Write a SQL query to find the average age of customers who purchasedd items from the 'Beauty' categorty.
+#### Q4. Write a SQL query to find the average age of customers who purchasedd items from the 'Beauty' categorty.
 ```sql
 	SELECT 
 		ROUND(AVG(age),2) as avg_age
@@ -167,13 +167,13 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	where category = 'Beauty'
 ```
 
- ## Q5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
+#### Q5. Write a SQL query to find all transactions where the total_sale is greater than 1000.
  ```sql
 	SELECT * from retail_sales
 	where total_sale > 1000
  ```
 
-## Q6. Write a SQL query to find the total number of transactions (transactions_id) made by each gender in each category.
+#### Q6. Write a SQL query to find the total number of transactions (transactions_id) made by each gender in each category.
  ```sql
 	SELECT 
 		category,
@@ -187,7 +187,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	ORDER BY 1
 ```
 
-## Q7. Write a SQL query to calculate the average sale for each month.Find out best selling month in each year.
+#### Q7. Write a SQL query to calculate the average sale for each month.Find out best selling month in each year.
  ```sql
 	SELECT 
 		year,
@@ -206,7 +206,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	where rank = 1
 ```
 
-## Q8. Write a SQL query to find the top 5 customers based on the heighest total sales
+#### Q8. Write a SQL query to find the top 5 customers based on the heighest total sales
  ```sql
 	SELECT 
 		customer_id,
@@ -217,7 +217,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	LIMIT 5
 ```
 
-## Q9. Write a SQL query to find the number of unique customers who purchased items for each category.
+#### Q9. Write a SQL query to find the number of unique customers who purchased items for each category.
  ```sql
 	SELECT 
 		category,
@@ -226,7 +226,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	GROUP BY 1
 ```
 
-## Q10. Write a SQL query to create each shift and number of orders(Example Morning <= 12 & 17,Evening > 17)
+#### Q10. Write a SQL query to create each shift and number of orders(Example Morning <= 12 & 17,Evening > 17)
  ```sql
 	with hourly_sale 
 	AS
@@ -247,9 +247,9 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	ORDER BY 2 DESC
 ```
 
-## Sales Performance & Trends 
+### Sales Performance & Trends 
 
-## Q11.Find the daily total sales trend for the month of November 2022
+#### Q11.Find the daily total sales trend for the month of November 2022
  ```sql
   SELECT 
   		sale_date,
@@ -261,7 +261,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 			ORDER BY 1
 ```
 
- ## Q12. Find the top 3 best-selling categories based on total sales 
+ #### Q12. Find the top 3 best-selling categories based on total sales 
   ```sql
 	SELECT 
 		category,
@@ -272,7 +272,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	LIMIT 3
 ```
 
-## Q13. Find the worst-selling category (least revenue)
+#### Q13. Find the worst-selling category (least revenue)
   ```sql
 	SELECT 
 		category,
@@ -284,7 +284,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
  ```
 
 ## Customer Insights
-## Q14. Find customers who made more than 5 products 
+#### Q14. Find customers who made more than 5 products 
   ```sql
 	SELECT 
 		customer_id,
@@ -295,7 +295,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	ORDER BY 2 DESC
 ```
 
-## Q15. Find the gender-wise average spending per transaction
+#### Q15. Find the gender-wise average spending per transaction
   ```sql
 	SELECT 
 		gender,
@@ -304,7 +304,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	GROUP BY 1
  ```
 
-## Q16. Find the heighest spending customer(max lifetime sales).
+#### Q16. Find the heighest spending customer(max lifetime sales).
   ```sql
 	SELECT 
 		customer_id,
@@ -315,7 +315,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 		LIMIT 1
 ```
 
-## Q17. Calculate profit for each transaction (total sales - cogs)
+#### Q17. Calculate profit for each transaction (total sales - cogs)
   ```sql
 	SELECT 
 		transactions_id,
@@ -323,7 +323,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	FROM retail_sales
 ```
 
-## Q18. Find the category that generated the heighest profit 
+#### Q18. Find the category that generated the heighest profit 
   ```sql
 	SELECT 
 		category,
@@ -334,7 +334,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 		LIMIT 1
 ```
 
-## Q19. Find average profit margin for each category
+#### Q19. Find average profit margin for each category
   ```sql
 	SELECT 
 		category,
@@ -346,7 +346,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 
 ## Time-based Analysis
 
-## Q20. Find sales distribution by day of week (Sunday-Saturday)
+#### Q20. Find sales distribution by day of week (Sunday-Saturday)
   ```sql
 	SELECT 
 		to_char(sale_date,'Day') as "Day of week",
@@ -356,7 +356,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 		ORDER BY 2 DESC
 ```
 
-## Q21. Find peak shopping hour(Most transactions by hour)
+#### Q21. Find peak shopping hour(Most transactions by hour)
   ```sql
 	SELECT 
 		EXTRACT(HOUR from sale_time) as "Shopping Hour",
@@ -369,21 +369,21 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 
 ## Product/Quantity Insights
 
-## Q22. Find the average order value(AOV).
+#### Q22. Find the average order value(AOV).
   ```sql
 	SELECT
 		ROUND(AVG(total_sale)) as "Average sales"
 	FROM retail_sales
  ```
 
-## Q23. Find transactions where customers bought more than 10 items (quantity > 10)
+#### Q23. Find transactions where customers bought more than 10 items (quantity > 10)
   ```sql
 	SELECT * 
 	FROM retail_sales
 	WHERE quantiy > 10
  ```
 
-## Q24. Find the category with the heighest average quantity sold per order 
+#### Q24. Find the category with the heighest average quantity sold per order 
   ```sql
 	SELECT 
 		category,
