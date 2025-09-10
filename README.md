@@ -132,7 +132,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 
 ## My Analysis & findings
 
-# Q1. Write a SQL query to retrive all columns for sales made on '2022-11-05'
+## Q1. Write a SQL query to retrive all columns for sales made on '2022-11-05'
 ```sql
 	SELECT * from retail_sales where sale_date = '2022-11-05'
 ```
