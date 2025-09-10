@@ -217,7 +217,7 @@ Select count(DISTINCT(category)) as total_category from retail_sales;
 	LIMIT 5
 ```
 
-# Q9. Write a SQL query to find the number of unique customers who purchased items for each category.
+## Q9. Write a SQL query to find the number of unique customers who purchased items for each category.
  ```sql
 	SELECT 
 		category,
